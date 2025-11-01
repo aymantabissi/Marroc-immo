@@ -22,11 +22,11 @@ export default function Login() {
       localStorage.setItem("role", data.user.role);
 
       // Redirection selon le rôle
-      if (data.user.role === "admin") {
-        navigate("/dashboard");
-      } else {
-        navigate("/home");
-      }
+    if (data.user.role.toLowerCase() === "admin") {
+  window.location.href = "/dashboard";
+} else {
+  window.location.href = "/home";
+}
     } catch (err) {
       setMsg(err.response?.data?.message || "Error logging in");
     }
