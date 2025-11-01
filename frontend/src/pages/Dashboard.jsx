@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Layout from "../components/Layout";
+
 export default function Dashboard() {
   const [user, setUser] = useState(null);
 
@@ -8,7 +8,6 @@ export default function Dashboard() {
     if (!token) {
       window.location.href = "/login";
     } else {
-      // Ici on pourrait décoder le token pour afficher les infos
       setUser({ name: "Utilisateur connecté" });
     }
   }, []);
@@ -16,7 +15,6 @@ export default function Dashboard() {
   if (!user) return <p>Loading...</p>;
 
   return (
-     <Layout showSidebar={true} showFooter={true}>
     <div className="p-8">
       <h1 className="text-2xl font-bold">Dashboard</h1>
       <p>Bienvenue {user.name}</p>
@@ -30,6 +28,5 @@ export default function Dashboard() {
         Logout
       </button>
     </div>
-    </Layout>
   );
 }
