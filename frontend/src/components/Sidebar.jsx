@@ -28,7 +28,7 @@ const Sidebar = () => {
       dropdown: true,
       subItems: [
         { label: "Toutes les annonces", path: "/admin/annonces" },
-        { label: "Ajouter une annonce", path: "/admin/annonces/ajouter" },
+        { label: "les annonces des ventes", path: "/admin/annonces/ajouter" },
       ]
     },
     { icon: Grid, label: "Produits", path: "/admin/products" },

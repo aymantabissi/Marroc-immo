@@ -1,9 +1,9 @@
-// index.js
-const express=require('express')
+const express = require('express');
 const dotenv = require("dotenv");
 const cors = require("cors");
+const path = require("path");
 const connectDB = require("./config/db");
-const authRoutes =require('./routes/authRoutes')
+const authRoutes = require('./routes/authRoutes');
 const annonceRoutes = require('./routes/annonceRoutes');
 
 dotenv.config();
@@ -13,9 +13,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Test route
+// Servir les fichiers statiques (images)
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+// Routes
 app.use("/api/auth", authRoutes);
 app.use('/api/annonces', annonceRoutes);
+
+// Test route
 app.get("/", (req, res) => {
   res.send("Backend Maroc Immo fonctionne !");
 });
